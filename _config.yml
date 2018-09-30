@@ -1,40 +1,61 @@
-# Name of your blog (this will show up at the top of your page and in the RSS feed)
-name: Sample Jekyll Blog
+# Site settings
+title:       Avi Singh's blog
+email:       avisingh599@gmail.com
+author:      Avi Singh
+description: ""
+baseurl:     ""
+url:         "https://avisingh599.github.io"
+#url:         "http://0.0.0.0:4000"
+date_format: "%b %-d, %Y"
 
-# Short description (goes below the title; it will also be used in the RSS feed)
-description: This is a sample Jekyll Blog.
+# Google services
+google_analytics: UA-63278661-1
+google_verification:
 
-# Your name, as you want it to appear underneath each post and in the footer
-author: Your Name
+# Optional features
+animated:             false
+show_related_posts:   false
+show_post_footers:    false
+show_social_icons:    true
+ajaxify_contact_form: false
 
-# Your email if you want it to be linked on the contact page
-author_email: you@example.com
+# Disqus post comments
+# (leave blank to disable Disqus)
+disqus_shortname: avisingh599
 
-# The directory for category index pages. Change it to something else if
-# for example you want links like /categories/category1 instead of /category1
-category_dir: /
+# Social icons
+github_username: avisingh599
+bitbucket_username:
+stackoverflow_id:
+twitter_username: avisingh599
+google_plus_id:
+linkedin_username:
+angellist_username:
+medium_id:
+bitcoin_url:
+paypal_url:
+flattr_button:
 
-# Uncomment if you are planning to run the blog in a subdirectory
-# Note - if you enable this, and attempt to view your site locally you have to use the baseurl in your local path.
-# Example, you must use http://localhost:4000/path/to/blog
-#baseurl: /path/to/blog 
-baseurl: 
+# Post sharing icons
+show_sharing_icons: true
+share_text: 'Share this post!'
+# Change to 'true' to enable individual icons
+share_facebook: true
+share_twitter: true
+share_googleplus: true
+share_linkedin: false
+share_digg: false
+share_tumblr: false
+share_reddit: true
+share_stumbleupon: false
+share_hackernews: true
 
-# The URL of your actual domain. This will be used to make absolute links in the RSS feed.
-url: http://yourdomain.com/
-
-#### Under the Hood Stuff #####
-
-# Use rdiscount as the markdown engine because it generates html5 compliant code for stuff like footnotes
-# If you use maroku (default engine) some of your generated pages may not validate or lint as html5
-# If you don't have it install it via gem install rdiscount
-markdown: rdiscount
-
-# Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
-permalink: pretty
-
-# How many articles do you wish to appear on the front page:
-paginate: 3
-
-# Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+# Build settings
+markdown:     kramdown
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
+#permalink:    pretty
+permalink:   /:categories/:title/
+paginate:     nil
+sass:
+  compressed: true
