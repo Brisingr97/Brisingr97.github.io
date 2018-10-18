@@ -7,9 +7,8 @@
 	
 </head>
 <body bgcolor=" #c0c0c0" link="#000000">
-	<font color="black">
 			<i>Shubham Tanwar's Blog</i>
-	<div id="page" style="padding:10%;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding-left:10%;padding-right:10% ">
+	<div id="page" style="padding:6%;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding-left:14%;padding-right:14% ">
 			
 		<!-- <div id="status_bar" style="left:0;margin-bottom:3%;top:0;position: fixed;background-color: #595959;width: 100%;padding: 2%">
 			Hello
@@ -30,13 +29,25 @@
 				</i>
 			</p>
 			<p>
-				<b>The initial problem statement :</b>
+				<b>Initial problem statement :</b>
 				<br> We wanted to create a fast implementation for understanding where we are and which path we are to take in a known environment
 				for the Assistech Lab at IITD. This could be done by first matching the image or path to one in our database and then triangulating to 
 				the path that the person/robot wants to take.<br>
-				There are many uses to basic pattern matching of images and numerous Machine learning based approaches as well as geometry and vision
-				based approaches to solve it. We intended to use the second one as we wanted a smaller database(or perhaps use a SLAM and switch
-				the problem over to no prior databases and pure localisation)
+				Numerous Machine learning as well as Vision+Geometry based approaches are available to solve it. We intended to use latter as a feature rich
+				and concentrated databases would could be scalable in the longer run. ( i.e. without retraining our networks )
+			</p>
+			<p>
+				<b>The obvious choice :</b><br>
+				All feature selection discussions must start with SIFT, It is a robust way to identify "good" feature points and match them between
+				two images However the run time was too high, another viable option to then consider was SURF or basic corner detection using
+				FAST algorithm and use it with color histograms and intensity management but since we were working indoors intensity of light
+				should not be a factor as most lighting would be artificial.
+			</p>
+			<p>
+				<b>Change in approach I :	</b><br>
+				Another hint to our solution was that we had a constant stream of images and we could use temporal information as well.
+				SLAMing should work just as well for our final solution however similar problems of run time evaluation were needed.
+				ORB-SLAM was finalised for testing and updation if possible. (However, <a href="./issues.html">running it is easier said than done)</a>
 			</p>
 		</div>
 		<div id="footer">
@@ -45,6 +56,5 @@
 			</p>
 		</div>
 	</div>
-</font>
 </body>
 </html>
