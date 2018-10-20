@@ -25,7 +25,7 @@
                 <i>Issues and solutions to computer vision based image localisation (or relocalisation) through
 					smart feature selection and other methologies to be used on small embedded systems and other projects
 					under <a href="http://www.cse.iitd.ernet.in/~mbala/">Prof M. Balakrishnan</a> IIT Delhi. This is an ongoing project under the 
-					tutelage of Research Associte <a href="https://www.linkedin.com/in/vikas-upadhyay-0ba3628a/?originalSubdomain=in">Mr. Vikas Upadhyay</a>
+					tutelage of Research Associate <a href="https://www.linkedin.com/in/vikas-upadhyay-0ba3628a/?originalSubdomain=in">Mr. Vikas Upadhyay</a>
 				</i>
 			</p>
 			<p>
@@ -33,21 +33,34 @@
 				<br> We wanted to create a fast implementation for understanding where we are and which path we are to take in a known environment
 				for the Assistech Lab at IITD. This could be done by first matching the image or path to one in our database and then triangulating to 
 				the path that the person/robot wants to take.<br>
-				Numerous Machine learning as well as Vision+Geometry based approaches are available to solve it. We intended to use latter as a feature rich
-				and concentrated databases would could be scalable in the longer run. ( i.e. without retraining our networks )
+				Numerous Machine learning as well as Vision+Geometry based approaches are available to solve it. We intended to use a white box
+				method that could be scalable in the longer run. ( i.e. without retraining our networks )
 			</p>
 			<p>
 				<b>The obvious choice :</b><br>
 				All feature selection discussions must start with SIFT, It is a robust way to identify "good" feature points and match them between
-				two images However the run time was too high, another viable option to then consider was SURF or basic corner detection using
-				FAST algorithm and use it with color histograms and intensity management but since we were working indoors intensity of light
-				should not be a factor as most lighting would be artificial.
+				two images However the run time was too high, another viable option to then consider was Speeded Up Robust features(SURF).
+				Not to reinvent the wheel here as long as the ulterior motive would suffice.
 			</p>
 			<p>
-				<b>Change in approach I :	</b><br>
+				<b>Approach I :	</b><br>
 				Another hint to our solution was that we had a constant stream of images and we could use temporal information as well.
-				SLAMing should work just as well for our final solution however similar problems of run time evaluation were needed.
-				ORB-SLAM was finalised for testing and updation if possible. (However, <a href="./issues.html">running it is easier said than done)</a>
+				SLAMing should work just as well for our final solution however similar problems of run time were to be corrected.
+				ORB-SLAM was finalised for testing and improvements if possible. (However, <a href="./issues.html">running it was easier said than done)</a>
+			</p>
+			<p>
+				<b>Approach II : </b><br>
+				ORB-SLAM works on the ORB algorithm provided by OpenCV, We decided to use the intrinsic FAST corner 
+				detection and thence create a polygon for the corner points, we then used generalised hough transform to match 
+				the polygons in different images. The polygon itself however was very susceptible to lens distortions and orientation of the camera.
+				Necessary transform corrections were needed.
+			</p>
+			<p>
+				<b>Approach III :</b><br>
+				Another approach to relocalise was to have blob matching algorithms mark out interest areas or perhaps bounding boxes of 
+				feature rich regions for identification, many of the SLAM algorithms avoid this but using bins of feature areas and then 
+				putting an upper bound on the number of features detected in that, so the entire image can be mapped and not just a 
+				small part, however mapping was not an aim here.
 			</p>
 		</div>
 		<div id="footer">
