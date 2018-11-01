@@ -23,12 +23,34 @@
 				Oct 1 2018
 			</p>
             <p>
-                <i>Issues and solutions to computer vision based image localisation (or relocalisation) through
-					smart feature selection and other methologies to be used on small embedded systems and other projects
-					under <a href="http://www.cse.iitd.ernet.in/~mbala/">Prof M. Balakrishnan</a> IIT Delhi. This is an ongoing project under the 
-					tutelage of Research Associte <a href="https://www.linkedin.com/in/vikas-upadhyay-0ba3628a/?originalSubdomain=in">Mr. Vikas Upadhyay</a>
+                <i>My experiments with trying to run ORB SLAM on a VM and then a RPi Zero M
 				</i>
-            </p>
+			</p>
+			<p>
+				<b>Enroute :</b><br> I cloned the ORB SLAM repository from <a href="https://github.com/raulmur/ORB_SLAM">here</a> and started cloning 
+				into the required dependecies starting from ROS however the first hiccup was that the versions that ORB SLAM (1) was tested 
+				only on ROS which were compatible with Ubuntu 12.04 and I was running 16.04 on my VM.<br>
+				
+				Onto Ubuntu 14.04 with ROS indigo! Hiwever there was another issue, the version of OpenCV was a mismatch, So a fresh installation
+				of OpenCV (v2.4) was required, which surpringly took ~11 Gigs of space almost depeleting my puny 20GB VM harddrive.<br>
+
+				New VM ,60Gigs HDD, Repeat<br>
+
+				After all the version aligned and compling the code, There was an issue, " typedef Eigen::Map<Matrix<double, D, D>, Matrix<double,D,D>::Flags & AlignedBit ? Aligned : Unaligned >  HessianBlockType;"
+				Which meant that the version of my Eigen library was wrong.
+				Their releases can be found <a href="https://bitbucket.org/eigen/eigen/src/2524f6185981c6ec1782aeea7f3e2c56211cac13?at=3.1">here</a>					
+			</p>
+
+			<p>
+				After spending almost 2 days on stackoverflow looking for specific compilation error, I learnt that because of such issues
+				ORB SLAM was refreshed to <a href="https://github.com/raulmur/ORB_SLAM2"> ORB SLAM 2.</a>
+				This could work on Ubuntu 16.04.<br>
+				Back to old VM.<br>
+				Downloaded Pangolin (installs like butter)
+				Downloaded Eigen (please use 3.1 and not 3.2 otherwise you'll get the same problem)
+				ROS was not required.
+				I ran it on TUM and KITTI datasets and then moved the system to a more mobile version to test the efficiency.
+			</p>
 		</div>
 		<div id="footer">
 			<p>
