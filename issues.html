@@ -33,25 +33,25 @@
 				only on ROS which were compatible with Ubuntu 12.04 and I was running 16.04 on my VM.
 			</p>
 			<p>
-				Onto Ubuntu 14.04 with ROS indigo! Hiwever there was another issue, the version of OpenCV was a mismatch, So a fresh installation
+				Onto Ubuntu 14.04 with ROS indigo! However there was another issue, the version of OpenCV was a mismatch, So a fresh installation
 				of OpenCV (v2.4) was required, which surpringly took ~11 Gigs of space almost depeleting my puny 20GB VM harddrive.<br>
 
 				New VM ,60Gigs HDD, Repeat<br>
 			</p>
 			<p>
-				After all the version aligned and compling the code, There was an issue,<br><br>
-				<i>" typedef Eigen::Map<Matrix<double, D, D>, Matrix<double,D,D>::Flags & AlignedBit ? Aligned : Unaligned >  HessianBlockType;"</i><br><br>
+				After all the version aligned and compling the code, There was yet another issue,<br><br>
+				<i>"typedef Eigen::Map<Matrix<double, D, D>, Matrix<double,D,D>::Flags & AlignedBit ? Aligned : Unaligned >  HessianBlockType;"</i><br><br>
 				Which meant that the version of my Eigen library was wrong.
 				Their releases can be found <a href="https://bitbucket.org/eigen/eigen/src/2524f6185981c6ec1782aeea7f3e2c56211cac13?at=3.1">here</a>					
 			</p>
 
 			<p>
-				After spending almost 2 days on Stack-Overflow looking for specific compilation error, I learnt that because of such issues
+				After spending almost 2 days on reinstalls and Stack-Overflow looking for specific compilation errors, I learnt that because of such issues
 				ORB SLAM was refreshed to <a href="https://github.com/raulmur/ORB_SLAM2"> ORB SLAM 2.</a>
 				Which <i>could</i> work on Ubuntu 16.04.<br>
 				Back to old VM.<br>
-				Downloaded <b>Pangolin</b><br> (installs like butter)
-				Downloaded <b>Eigen</b>(please use 3.1 and not 3.2 otherwise you'll get the same problem)<br>
+				Downloaded <b>Pangolin</b> (installs like butter)<br>
+				Downloaded <b>Eigen</b> (please use 3.1 and not 3.2 otherwise you'll get the same problem)<br>
 				ROS was not required.<br>
 				I ran it on TUM and KITTI datasets and then moved the system to a more mobile version to test the efficiency.
 			</p>
